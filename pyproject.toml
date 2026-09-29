@@ -1,0 +1,48 @@
+[project]
+name = "nonebot-plugin-meme-manager"
+version = "0.1.0"
+description = "NoneBot2 OneBot V11 表情包收藏与管理插件"
+authors = [{ name = "Siornya", email = "wxh200607@outlook.com" }]
+dependencies = [
+    "nonebot2>=2.3.1",
+    "nonebot-adapter-onebot>=2.4.6",
+    "nonebot-plugin-localstore>=0.7.1",
+    "httpx>=0.27.0",
+    "Pillow>=10.0.0",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = { file = "LICENSE" }
+keywords = ["nonebot", "nonebot2", "onebot", "sticker", "meme"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0", "pytest-asyncio>=0.23.0", "ruff>=0.6.0"]
+
+[project.urls]
+Homepage = "https://github.com/Siornya/laizhiqingchu-bot"
+Repository = "https://github.com/Siornya/laizhiqingchu-bot"
+Issues = "https://github.com/Siornya/laizhiqingchu-bot/issues"
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["nonebot_plugin_meme_manager"]
+package-dir = { nonebot_plugin_meme_manager = "." }
+
+[tool.nonebot]
+adapters = [
+    { name = "OneBot V11", module_name = "nonebot.adapters.onebot.v11" },
+]
+plugins = ["nonebot_plugin_meme_manager"]
+plugin_dirs = []
+builtin_plugins = []
+
+[tool.ruff]
+line-length = 92
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "ASYNC", "S"]
+ignore = ["S101"]
